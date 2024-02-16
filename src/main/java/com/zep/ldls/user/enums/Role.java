@@ -1,4 +1,4 @@
-package com.zep.ldls.enums;
+package com.zep.ldls.user.enums;
 public enum Role {
     ADMIN,
     LAWYER,
