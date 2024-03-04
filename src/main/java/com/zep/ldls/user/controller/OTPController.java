@@ -1,8 +1,6 @@
 //package com.zep.ldls.user.controller;
 //
-//
-//import com.emtech.dto.OTPVerificationRequest;
-//import com.emtech.service.AuthenticationService;
+
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestBody;

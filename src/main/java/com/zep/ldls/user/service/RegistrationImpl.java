@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import com.zep.ldls.user.enums.Status;
 @Service
 public class RegistrationImpl implements Registration {
 
@@ -20,7 +20,7 @@ public class RegistrationImpl implements Registration {
         @Override
         public void registerUser(UserDTO userDTO) {
             User user = convertDTOToUser(userDTO);
-            user.setStatus(User.Status.PENDING);
+            user.setStatus(Status.PENDING);
             userRepository.save(user);
             sendEmailVerificationOTP(user);
         }
@@ -44,17 +44,10 @@ public class RegistrationImpl implements Registration {
         }
 
 
-//        @Override
-//        public void sendAdminInvitation(String email) {
-//            SimpleMailMessage message = new SimpleMailMessage();
-//            message.setTo(email);
-//            message.setSubject("Admin Invitation");
-//            message.setText("You have been invited to register as an admin.");
-//            emailSender.send(message);
-//        }
+
         @Override
         public void approveAdminRegistration(User user) {
-            user.setStatus(User.Status.ACTIVE);
+            user.setStatus(Status.ACTIVE);
             userRepository.save(user);
         }
 
